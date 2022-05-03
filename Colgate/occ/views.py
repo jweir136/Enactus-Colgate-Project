@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseNotFound
 from django.template import loader
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from .forms import SignUpForm, LoginForm, LearningModuleSubmissionForm
 from .models import LearningModules, CompletedModules
 
@@ -138,6 +138,14 @@ def module_page(request, id):
                     module_id=learning_module.module_id
                  )
                 newcompletedmodule.save()
+                return redirect("/occ/home")
+                
     context = {"form":form, "learning_module":learning_module}
     template = loader.get_template('occ/module.html')
     return HttpResponse(template.render(context, request))
+
+def logout_page(request):
+    logout(request)
+
+    return redirect("/occ")
+    

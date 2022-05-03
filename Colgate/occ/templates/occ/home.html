@@ -3,6 +3,8 @@
     <body>
         <h1>Learning Modules</h1>
 
+        <a href="/occ/logout">Logout</a>
+
         <p>Points: {{ points }}</p>
 
         <table border='1'>
@@ -12,8 +14,8 @@
                 <th>Summary</th>
                 <th>Points</th>
             </tr>
-            <tr>
-                {% for module in finished_modules %}
+            {% for module in finished_modules %}
+                <tr>
                     <td>{{ module.module_id}}</td>
                     <td>
                         <a href="/occ/module/{{ module.module_id }}">
@@ -22,8 +24,8 @@
                     </td>
                     <td>{{ module.module_summary }}</td>
                     <td>{{ module.module_points }}</td>
-                {% endfor %}
-            </tr>
+                </tr>
+            {% endfor %}
         </table>
     </body>
 </html>

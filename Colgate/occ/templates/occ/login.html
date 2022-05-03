@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>Login</h1>
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="Submit" name="submit" value="Submit"/>
+        </form>
+
+        {{ exception }}
+
+        <p>Don't already have an account? <a href="/occ/signup">Create an account</a></p>
+    </body>
+</html>

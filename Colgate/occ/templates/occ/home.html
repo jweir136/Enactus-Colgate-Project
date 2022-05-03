@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>Learning Modules</h1>
+
+        <p>Points: {{ points }}</p>
+
+        <table border='1'>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Summary</th>
+                <th>Points</th>
+            </tr>
+            <tr>
+                {% for module in finished_modules %}
+                    <td>{{ module.module_id}}</td>
+                    <td>
+                        <a href="/occ/module/{{ module.module_id }}">
+                            {{ module.module_title }}
+                        </a>
+                    </td>
+                    <td>{{ module.module_summary }}</td>
+                    <td>{{ module.module_points }}</td>
+                {% endfor %}
+            </tr>
+        </table>
+    </body>
+</html>
